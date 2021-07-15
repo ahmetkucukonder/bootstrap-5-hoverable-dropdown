@@ -4,8 +4,10 @@ $(document).ready(function () {
             let menu = $('.dropdown-menu'); //Your Dropdown Menu Class Name or ID
         
             let check = menu.attr('data-bs-popper');
-            $(btn).hover(function () {
-                checker();
+            btn.hover(function () {
+                 setTimeout(function () {
+                    checker();
+                }, 200);
             });
 
             menu.on("mouseleave", function () {

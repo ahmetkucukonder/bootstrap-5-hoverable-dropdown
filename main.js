@@ -1,25 +1,29 @@
+$(document).ready(function () {
     if (window.innerWidth > 992) {
-
-            let check = $('.dropdown-menu').attr('data-bs-popper');
-            $('#button').hover(function () {
-                checkShow();
+            let btn = $('#dropdown_button'); //Your Button's Class Name or ID
+            let menu = $('.dropdown-menu'); //Your Dropdown Menu Class Name or ID
+        
+            let check = menu.attr('data-bs-popper');
+            $(btn).hover(function () {
+                checker();
             });
 
-            $('.dropdown-menu').on("mouseleave", function () {
-                checkShow();
+            menu.on("mouseleave", function () {
+                checker();
             });
 
-            function checkShow() {
+            function checker() {
                 if (check == 'none') {
-                    $('#button').removeClass('show');
-                    $('.dropdown-menu').removeClass('show');
-                    $('.dropdown-menu').removeAttr('data-bs-popper');
+                    btn.removeClass('show active');
+                    menu.removeClass('show');
+                    menu.removeAttr('data-bs-popper');
                 } else {
-                    $('#button').addClass('show');
-                    $('.dropdown-menu').addClass('show');
-                    $('.dropdown-menu').attr('data-bs-popper', 'none');
+                    btn.addClass('show active');
+                    menu.addClass('show');
+                    menu.attr('data-bs-popper', 'none');
                 }
-                check = $('.dropdown-menu').attr('data-bs-popper');
+                check = menu.attr('data-bs-popper');
             }
 
     }
+});
